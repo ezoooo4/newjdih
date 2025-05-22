@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{
+    @apply
+    bg-slate-100
+}
+.navbars{
+    @apply
+    flex
+    items-center
+    w-full
+    h-16
+    fixed
+    top-0
+    left-0
+    bg-gradient-to-r from-cyan-500 to-blue-500
+    shadow-md
+    z-10
+}
+.navbars .header-brand {
+    @apply
+    flex
+    items-center
+    justify-center
+    w-[255px]
+    bg-gradient-to-r from-blue-500 to-cyan-500
+    h-16
+    text-3xl
+    font-semibold
+    text-white
+}
+.navbars .header-box-menu {
+    @apply
+    flex
+    items-center
+    justify-between
+    w-[calc('100vw_-_250px')]
+}
+.btn-nav-navigations {
+    @apply
+    flex
+    items-center
+    justify-center
+    flex-col
+    w-16
+    h-16
+    space-y-1
+}
+.btn-nav-navigations span{
+    @apply
+    inline-block
+    w-6
+    h-[3px]
+    bg-white
+    rounded-md
+}
+.sidebar {
+    @apply
+    flex
+    flex-col
+    fixed
+    top-0
+    left-0
+    h-screen
+    w-[255px]
+    bg-white
+    shadow-md
+    pt-16
+    transition-all
+    ease-in-out
+    duration-500
+}
+.sidebar-close .sidebar {
+    @apply
+    md:-left-full
+}
+.sidebar .menu {
+    @apply
+    flex
+    flex-col
+    p-4
+    space-y-[2px]
+}
+.sidebar .menu li a{
+    @apply
+    flex
+    items-center
+    gap-x-2
+    rounded-md
+    px-3
+    py-2.5
+    text-sm
+    text-slate-500
+    
+}
+.sidebar .menu li a:hover,
+.sidebar .menu li a:focus,
+.sidebar .menu li.active a{
+    @apply
+    bg-gradient-to-r from-cyan-500 to-blue-500
+    text-white
+    shadow-md
+    transition-all
+    duration-300
+    ease-in-out
+    
+}
