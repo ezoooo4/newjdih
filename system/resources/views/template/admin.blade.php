@@ -6,18 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>@yield('title')</title>
-    {{-- datatables --}}
+
+    {{-- DataTables --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
 
-    {{-- icon --}}
+    {{-- Material Icons --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Fonts -->
+
+    {{-- Bootstrap Icons ✅ Fix via CDN --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    {{-- Fonts --}}
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('public/node_modules/bootstrap-icons/font/bootstrap-icons.css') }}">
+
+    {{-- Bootstrap & Tailwind --}}
     <link rel="stylesheet" href="{{ asset('public/plugins/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/plugins/css/tailwind.css') }}">
-
 </head>
 
 <body class="font-sans antialiased">
@@ -28,10 +33,12 @@
         @yield('content')
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-        crossorigin="anonymous"></script>
+    {{-- Scripts --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="{{ asset('public/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+
+    {{-- DataTable Init --}}
     <script>
         let table = new DataTable('#datatable');
         $('.btn-nav-navigations').on('click', function() {
@@ -39,29 +46,29 @@
         })
     </script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    @if(session('success'))
-        Swal.fire({
-            title: "Berhasil!",
-            text: "{{ session('success') }}",
-            icon: "success",
-            confirmButtonText: "OK"
-        });
-    @endif
+    {{-- SweetAlert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if(session('success'))
+            Swal.fire({
+                title: "Berhasil!",
+                text: "{{ session('success') }}",
+                icon: "success",
+                confirmButtonText: "OK"
+            });
+        @endif
 
-    @if(session('error'))
-        Swal.fire({
-            title: "Gagal!",
-            text: "{{ session('error') }}",
-            icon: "error",
-            confirmButtonText: "OK"
-        });
-    @endif
-</script>
+        @if(session('error'))
+            Swal.fire({
+                title: "Gagal!",
+                text: "{{ session('error') }}",
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        @endif
+    </script>
 
-
-@stack('script')
+    @stack('script')
 </body>
 
 </html>

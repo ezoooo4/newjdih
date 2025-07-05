@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('isi_agenda');
             $table->longText('tempat_agenda');
             $table->date('tgl_agenda');
-            $table->string('status_agenda');
+            
             $table->softDeletes();
             $table->timestamps();
         });

@@ -13,10 +13,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<title>Hosting - Home1</title>
+	<title>JDIH Ketapang</title>
 
 	<!-- Standard Favicon -->
-	<link rel="icon" type="image/x-icon" href="{{ url('public/landing') }}/assets/images//favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="{{ url('public/landing') }}/assets/images//logo-jdihn.png" />
 	
 	<!-- For iPhone 4 Retina display: -->
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url('public/landing') }}/assets/images//apple-touch-icon-114x114-precomposed.png">
@@ -78,7 +78,7 @@
 			<!-- Slider Section 1 -->
 		{{ $slot }}
 		</main>
-		
+	<x-layouts.web.footer />
 		<!-- Footer Main -->
 	</div>
 	{{-- <x-layouts.web.footer /> --}}

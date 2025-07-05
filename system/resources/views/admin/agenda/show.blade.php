@@ -33,10 +33,7 @@
                         <th>Tanggal Agenda</th>
                         <td>{{ $agenda->tgl_agenda }}</td>
                     </tr>
-                    <tr>
-                        <th>Status Agenda</th>
-                        <td>{{ $agenda->status_agenda }}</td>
-                    </tr>
+                   
                 </tbody>
             </table>
             <a href="{{ url('admin/agenda') }}" class="btn btn-secondary mt-3">Kembali</a>

@@ -25,7 +25,7 @@
                         <th>Foto Berita</th>
                         <td>
                             @if($berita->foto_berita)
-                                <img src="{{ asset('storage/' . $berita->foto_berita) }}" width="200">
+                                <img src="{{ asset('system/storage/app/public/' . $berita->foto_berita) }}" width="200">
                             @else
                                 Tidak ada gambar
                             @endif

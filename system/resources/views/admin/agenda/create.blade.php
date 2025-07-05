@@ -65,23 +65,11 @@
                                 @enderror
                             </td>
                         </tr>
-                        <tr>
-                            <th>Status Agenda</th>
-                            <td>
-                                <select class="form-control @error('status_agenda') is-invalid @enderror" name="status_agenda">
-                                    <option value="">Pilih Status</option>
-                                    <option value="Aktif" {{ old('status_agenda') == 'Aktif' ? 'selected' : '' }}>Aktif</option>
-                                    <option value="Nonaktif" {{ old('status_agenda') == 'Nonaktif' ? 'selected' : '' }}>Nonaktif</option>
-                                </select>
-                                @error('status_agenda')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </td>
-                        </tr>
+                        
                     </tbody>
                 </table>
                 <button type="submit" class="btn btn-primary mt-3">Simpan</button>
-                <a href="{{ url('admin/agenda') }}" class="btn btn-secondary mt-3">Batal</a>
+                <a href="{{ url('admin/agenda') }}" class="btn btn-secondary mt-3">Kembali</a>
             </form>
         </div>
     </div>

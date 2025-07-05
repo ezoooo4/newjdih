@@ -17,17 +17,18 @@ class Dokumen extends Model
         'nama_dokumen',
         'asal_dokumen',
         'tgl_penetapan',
-        'tgl_terbit',
+        'tempat_terbit', 
         'file_dokumen',
+        'link_dokumen',
         'deskripsi',
         'kategori_id',
+        'status',
+        'tahun',
+        'judul',
     ];
 
     public $timestamps = true;
 
-    /**
-     * Relasi ke tabel kategori_dokumen
-     */
     public function kategori()
     {
         return $this->belongsTo(KategoriDokumen::class, 'kategori_id');

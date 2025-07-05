@@ -6,7 +6,7 @@
   <div class="card">
       <div class="card-header">
         <a href="{{ url('admin/kategori_dokumen/create') }}" class="btn float-end btn-sm btn-primary">Tambah Kategori Dokumen</a>
-          <h3>Kategori Dokumen</h3>
+          <h3>Data Kategori Dokumen</h3>
           </div>
       <div class="card-body">
       <div class="table-responsive">

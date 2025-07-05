@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('dokumen', function (Blueprint $table) {
@@ -17,19 +14,20 @@ return new class extends Migration
             $table->string('nama_dokumen');
             $table->string('asal_dokumen');
             $table->date('tgl_penetapan');
-            $table->date('tgl_terbit');
-            $table->text('file_dokumen');
-            $table->string('deskripsi');
-            $table->unsignedBigInteger('kategori_id');           
+            $table->string('tempat_terbit'); 
+            $table->text('file_dokumen')->nullable(); 
+            $table->string('link_dokumen')->nullable(); 
+            $table->string('deskripsi')->nullable();   
+            $table->unsignedBigInteger('kategori_id');
             $table->foreign('kategori_id')->references('id')->on('kategori_dokumen')->onDelete('cascade');
+            $table->enum('status', ['masih berlaku', 'tidak berlaku'])->default('masih berlaku');
+            $table->year('tahun')->nullable();
+            $table->string('judul');
             $table->softDeletes();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('dokumen');

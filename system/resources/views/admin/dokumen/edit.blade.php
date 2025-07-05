@@ -1,118 +1,171 @@
 @extends('template.admin')
 
 @section('content')
-<div class="container px-4 mx-5 mt-5">
-    <div class="card mb-4">
-        <div class="card-header">
-            <h3 class="card-title">Tambah Dokumen</h3>
-        </div>
+<div class="container mt-5">
+    <h2 class="mb-4 text-center fw-bold">Form Edit Dokumen</h2>
+    <div class="card mx-auto" style="max-width: 1000px;">
         <div class="card-body">
-            <form action="{{ url('admin/dokumen/update') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('admin/dokumen/update', $dokumen->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <table class="table table-bordered">
-                    <tbody>
-                        <tr>
-                            <th>Nomor Dokumen</th>
-                            <td>
-                                <input type="text" class="form-control @error('no_dokumen') is-invalid @enderror" name="no_dokumen" value="{{ old('no_dokumen') }}">
-                                @error('no_dokumen')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Nama Dokumen</th>
-                            <td>
-                                <input type="text" class="form-control @error('nama_dokumen') is-invalid @enderror" name="nama_dokumen" value="{{ old('nama_dokumen') }}">
-                                @error('nama_dokumen')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Asal Dokumen</th>
-                            <td>
-                                <input type="text" class="form-control @error('asal_dokumen') is-invalid @enderror" name="asal_dokumen" value="{{ old('asal_dokumen') }}">
-                                @error('asal_dokumen')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Tgl Penetapan</th>
-                            <td>
-                                <input type="date" class="form-control @error('tgl_penetapan') is-invalid @enderror" name="tgl_penetapan" value="{{ old('tgl_penetapan') }}">
-                                @error('tgl_penetapan')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Tgl Terbit</th>
-                            <td>
-                                <input type="date" class="form-control @error('tgl_terbit') is-invalid @enderror" name="tgl_terbit" value="{{ old('tgl_terbit') }}">
-                                @error('tgl_terbit')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>File</th>
-                            <td>
-                                <div class="form-group">
-                                        <label for="file_dokumen">Upload File Dokumen (PDF)</label>
-                                        <input type="file" name="file_dokumen" class="form-control">
+                <div class="row">
+                    <!-- Kolom Kiri -->
+                    <div class="col-md-6">
+                        <!-- Judul -->
+                        <div class="mb-3">
+                            <label for="judul" class="form-label">Judul Dokumen</label>
+                            <input type="text" name="judul" id="judul"
+                                class="form-control @error('judul') is-invalid @enderror"
+                                value="{{ old('judul', $dokumen->judul) }}" required>
+                            @error('judul')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Nomor Dokumen -->
+                        <div class="mb-3">
+                            <label class="form-label">Nomor Dokumen</label>
+                            <input type="text" name="no_dokumen"
+                                class="form-control @error('no_dokumen') is-invalid @enderror"
+                                value="{{ old('no_dokumen', $dokumen->no_dokumen) }}">
+                            @error('no_dokumen')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Nama Dokumen -->
+                        <div class="mb-3">
+                            <label class="form-label">Nama Jenis Dokumen</label>
+                            <input type="text" name="nama_dokumen"
+                                class="form-control @error('nama_dokumen') is-invalid @enderror"
+                                value="{{ old('nama_dokumen', $dokumen->nama_dokumen) }}">
+                            @error('nama_dokumen')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Asal Dokumen -->
+                        <div class="mb-3">
+                            <label class="form-label">Asal Dokumen</label>
+                            <input type="text" name="asal_dokumen"
+                                class="form-control @error('asal_dokumen') is-invalid @enderror"
+                                value="{{ old('asal_dokumen', $dokumen->asal_dokumen) }}">
+                            @error('asal_dokumen')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Tahun -->
+                        <div class="mb-3">
+                            <label class="form-label">Tahun</label>
+                            <input type="number" name="tahun"
+                                class="form-control @error('tahun') is-invalid @enderror"
+                                value="{{ old('tahun', $dokumen->tahun) }}">
+                            @error('tahun')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Tanggal Penetapan -->
+                        <div class="mb-3">
+                            <label class="form-label">Tanggal Penetapan</label>
+                            <input type="date" name="tgl_penetapan"
+                                class="form-control @error('tgl_penetapan') is-invalid @enderror"
+                                value="{{ old('tgl_penetapan', $dokumen->tgl_penetapan) }}">
+                            @error('tgl_penetapan')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <!-- Kolom Kanan -->
+                    <div class="col-md-6">
+                        <!-- Tempat Terbit -->
+                        <div class="mb-3">
+                            <label class="form-label">Tempat Terbit</label>
+                            <input type="text" name="tempat_terbit"
+                                class="form-control @error('tempat_terbit') is-invalid @enderror"
+                                value="{{ old('tempat_terbit', $dokumen->tempat_terbit) }}">
+                            @error('tempat_terbit')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- File Dokumen -->
+                        <div class="mb-3">
+                            <label class="form-label">Upload File Dokumen (PDF)</label>
+                            <input type="file" name="file_dokumen"
+                                class="form-control @error('file_dokumen') is-invalid @enderror">
+                            @error('file_dokumen')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            @if ($dokumen->file_dokumen)
+                                <div class="mt-2">
+                                    <a href="{{ asset('storage/' . $dokumen->file_dokumen) }}" target="_blank">Lihat File Sebelumnya</a>
                                 </div>
-                                @error('file_dokumen')
-                                    <div class="text-danger mt-1">{{ $message }}</div>
-                                @enderror
-                                <div class="form-group">
-                                        <label for="link_dokumen">Link Dokumen (opsional jika file terlalu besar)</label>
-                                        <input type="url" name="link_dokumen" class="form-control" placeholder="https://...">
-                                </div>                        
-                                @error('link_dokumen')
-                                    <div class="text-danger mt-1">{{ $message }}</div>
-                                @enderror
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Deskripsi</th>
-                            <td>
-                                <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi">{{ old('deskripsi') }}</textarea>
-                                @error('deskripsi')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </td>
-                        </tr>
-                        <tr>
-                            <th> <label for="kategori">Kategori</label></th>
-                          
-                            <th>
-                                <select id="nama" class="form-select"  name="kategori_id" required>
-                                    <option value="" disabled selected>Pilih kategori</option>
-                                   @foreach($list_kategori as $kategori)
-                                   <option value="{{$kategori->id}}">{{$kategori->nama_kategori}}</option>
-                                   @endforeach
-                                </select>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>Status Dokumen</th>
-                            <td>
-                                <select class="form-control @error('status_dokumen') is-invalid @enderror" name="status_dokumen">
-                                    <option value="">Pilih Status</option>
-                                    <option value="Masih Berlaku" {{ old('status_dokumen') == 'Masih Berlaku' ? 'selected' : '' }}>Masih berlaku</option>
-                                    <option value="Tidak Berlaku" {{ old('status_dokumen') == 'Tidak Berlaku' ? 'selected' : '' }}>Tidak Berlaku</option>
-                                </select>
-                                @error('status_dokumen')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </td>
-                        </tr>
-                    </tbody>
-                    </table>
-                <button type="submit" class="btn btn-primary mt-3">Simpan</button>
-                <a href="{{ url('admin/dokumen') }}" class="btn btn-secondary mt-3">Batal</a>
+                            @endif
+                        </div>
+
+                        <!-- Link Dokumen -->
+                        <div class="mb-3">
+                            <label class="form-label">Link Dokumen (opsional)</label>
+                            <input type="url" name="link_dokumen"
+                                class="form-control @error('link_dokumen') is-invalid @enderror"
+                                placeholder="https://..." value="{{ old('link_dokumen', $dokumen->link_dokumen) }}">
+                            @error('link_dokumen')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <div class="mb-3">
+                            <label class="form-label">Deskripsi</label>
+                            <textarea name="deskripsi"
+                                class="form-control @error('deskripsi') is-invalid @enderror"
+                                rows="3">{{ old('deskripsi', $dokumen->deskripsi) }}</textarea>
+                            @error('deskripsi')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Kategori -->
+                        <div class="mb-3">
+                            <label class="form-label">Kategori</label>
+                            <select name="kategori_id"
+                                class="form-select @error('kategori_id') is-invalid @enderror" required>
+                                <option value="">Pilih Kategori</option>
+                                @foreach ($list_kategori as $kategori)
+                                    <option value="{{ $kategori->id }}"
+                                        {{ old('kategori_id', $dokumen->kategori_id) == $kategori->id ? 'selected' : '' }}>
+                                        {{ $kategori->nama_kategori }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('kategori_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Status Dokumen -->
+                        <div class="mb-3">
+                            <label class="form-label">Status Dokumen</label>
+                            <select name="status"
+                                class="form-select @error('status') is-invalid @enderror" required>
+                                <option value="">Pilih Status</option>
+                                <option value="masih berlaku" {{ old('status', $dokumen->status) == 'masih berlaku' ? 'selected' : '' }}>Masih Berlaku</option>
+                                <option value="tidak berlaku" {{ old('status', $dokumen->status) == 'tidak berlaku' ? 'selected' : '' }}>Tidak Berlaku</option>
+                            </select>
+                            @error('status')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol -->
+                <div class="mt-4 d-flex justify-content-end gap-2">
+                    <a href="{{ url('admin/dokumen') }}" class="btn btn-secondary">Kembali</a>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
             </form>
         </div>
     </div>

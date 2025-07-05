@@ -5,7 +5,7 @@
   <div class="card">
       <div class="card-header">
         <a href="{{ url('admin/agenda/create') }}" class="btn float-end btn-sm btn-primary">Tambah Agenda</a>
-          <h3>Agenda</h3>
+          <h3>Data Agenda</h3>
           </div>
       <div class="card-body">
       <div class="table-responsive">
@@ -13,12 +13,13 @@
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>Pembuat Agenda</th>
                     <th>Judul Agenda</th>
                     <th>Deskripsi Agenda</th>
                     <th>Isi Agenda</th>
                     <th>Tempat Agenda</th>
                     <th>Tgl Agenda</th>
-                    <th>Status Agenda</th>
+                    
                     <th>Action</th>
                 </tr>
                 </thead>

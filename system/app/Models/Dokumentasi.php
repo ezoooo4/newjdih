@@ -14,9 +14,8 @@ class Dokumentasi extends Model
 
     protected $fillable = [
         'nama_kegiatan',
-        'tgl_kegiatan',
-        'kategori',
-        'file',
+        'tgl_kegiatan',       
+        'foto',
         'status_dokumentasi',
         'url',
     ];

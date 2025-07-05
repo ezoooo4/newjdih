@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nama_kegiatan');
             $table->date('tgl_kegiatan');
-            $table->string('kategori');
-            $table->text('file');
-            $table->string('status_dokumentasi');
-            $table->longText('url');
+            $table->text('foto')->nullable();  
+            $table->enum('status_dokumentasi', ['Publik', 'Privat']);
+            $table->string('url')->nullable(); 
             $table->softDeletes();
             $table->timestamps();
         });

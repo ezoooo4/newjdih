@@ -24,8 +24,7 @@ class DokumentasiController extends Controller
         $request->validate([
             'nama_kegiatan' => 'required|string|max:255',
             'tgl_kegiatan' => 'required|date',
-            'kategori' => 'required|string|max:255',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:10048',
             'status_dokumentasi' => 'required|string|in:Publik,Privat',
             'url' => 'nullable|url',
         ]);
@@ -39,13 +38,12 @@ class DokumentasiController extends Controller
         Dokumentasi::create([
             'nama_kegiatan' => $request->input('nama_kegiatan'),
             'tgl_kegiatan' => $request->input('tgl_kegiatan'),
-            'kategori' => $request->input('kategori'),
             'foto' => $filePath,
             'status_dokumentasi' => $request->input('status_dokumentasi'),
             'url' => $request->input('url'),
         ]);
 
-        return redirect('admin/dokumentasi')->with('success', 'Dokumentasi berhasil ditambahkan!');
+        return redirect('admin/dokumentasi')->with('success', 'Dokumentasi berhasil disimpan!');
     }
 
     public function edit($id)
@@ -59,7 +57,6 @@ class DokumentasiController extends Controller
         $request->validate([
             'nama_kegiatan' => 'required|string|max:255',
             'tgl_kegiatan' => 'required|date',
-            'kategori' => 'required|string|max:255',
             'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'status_dokumentasi' => 'required|string|in:Publik,Privat',
             'url' => 'nullable|url',
@@ -78,13 +75,12 @@ class DokumentasiController extends Controller
         $dokumentasi->update([
             'nama_kegiatan' => $request->input('nama_kegiatan'),
             'tgl_kegiatan' => $request->input('tgl_kegiatan'),
-            'kategori' => $request->input('kategori'),
             'foto' => $filePath,
             'status_dokumentasi' => $request->input('status_dokumentasi'),
             'url' => $request->input('url'),
         ]);
 
-        return redirect('admin/dokumentasi')->with('success', 'Dokumentasi berhasil diperbarui!');
+        return redirect('admin/dokumentasi')->with('success', 'Dokumentasi berhasil diupdate!');
     }
 
     public function destroy($id)

@@ -27,7 +27,7 @@ class AgendaController extends Controller
             'isi_agenda' => 'required|string',
             'tempat_agenda' => 'required|string|max:255',
             'tgl_agenda' => 'required|date',
-            'status_agenda' => 'required|string|in:Aktif,Nonaktif',
+            
         ]);
 
         // Simpan data ke database
@@ -38,10 +38,10 @@ class AgendaController extends Controller
             'isi_agenda' => $request->input('isi_agenda'),
             'tempat_agenda' => $request->input('tempat_agenda'),
             'tgl_agenda' => $request->input('tgl_agenda'),
-            'status_agenda' => $request->input('status_agenda'),
+           
         ]);
 
-        return redirect('admin/agenda')->with('success', 'Agenda berhasil ditambahkan!');
+        return redirect('admin/agenda')->with('success', 'Data berhasil disimpan!');
     }
 
     public function edit($id)
@@ -60,7 +60,7 @@ class AgendaController extends Controller
             'isi_agenda' => 'required|string',
             'tempat_agenda' => 'required|string|max:255',
             'tgl_agenda' => 'required|date',
-            'status_agenda' => 'required|string|in:Aktif,Nonaktif',
+            
         ]);
 
         $agenda = Agenda::findOrFail($id);
@@ -73,10 +73,10 @@ class AgendaController extends Controller
             'isi_agenda' => $request->input('isi_agenda'),
             'tempat_agenda' => $request->input('tempat_agenda'),
             'tgl_agenda' => $request->input('tgl_agenda'),
-            'status_agenda' => $request->input('status_agenda'),
+            
         ]);
 
-        return redirect('admin/agenda')->with('success', 'Agenda berhasil diperbarui!');
+        return redirect('admin/agenda')->with('success', 'Data berhasil diupdate!');
     }
 
     public function destroy($id)
@@ -84,7 +84,7 @@ class AgendaController extends Controller
         $agenda = Agenda::findOrFail($id);
         $agenda->delete();
 
-        return redirect('admin/agenda')->with('success', 'Agenda berhasil dihapus!');
+        return redirect('admin/agenda')->with('success', 'Data berhasil dihapus!');
     }
 
     public function show($id)

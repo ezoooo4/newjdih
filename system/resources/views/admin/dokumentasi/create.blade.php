@@ -30,15 +30,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Kategori</th>
-                            <td>
-                                <input type="text" class="form-control @error('kategori') is-invalid @enderror" name="kategori" value="{{ old('kategori') }}">
-                                @error('kategori')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </td>
-                        </tr>
-                        <tr>
                             <th>Foto Dokumentasi</th>
                             <td>
                                 <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto">
@@ -72,7 +63,7 @@
                     </tbody>
                 </table>
                 <button type="submit" class="btn btn-primary mt-3">Simpan</button>
-                <a href="{{ url('admin/dokumentasi') }}" class="btn btn-secondary mt-3">Batal</a>
+                <a href="{{ url('admin/dokumentasi') }}" class="btn btn-secondary mt-3">Kembali</a>
             </form>
         </div>
     </div>

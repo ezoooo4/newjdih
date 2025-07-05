@@ -30,7 +30,7 @@ class KategoriDokumenController extends Controller
 
         // Redirect dengan pesan sukses
         return redirect('admin/kategori_dokumen')
-                         ->with('success', 'Kategori Dokumen berhasil ditambahkan!');
+                         ->with('success', 'Kategori Dokumen berhasil disimpan!');
     }
 
     public function edit($id)
@@ -56,7 +56,7 @@ class KategoriDokumenController extends Controller
 
         // Redirect dengan pesan sukses
         return redirect('admin/kategori_dokumen')
-                         ->with('success', 'Kategori Dokumen berhasil diperbarui!');
+                         ->with('success', 'Kategori Dokumen berhasil diupdate!');
     }
     public function destroy($kategori)
     {

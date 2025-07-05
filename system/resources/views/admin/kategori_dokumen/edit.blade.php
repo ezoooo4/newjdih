@@ -12,18 +12,20 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <th>Nomor Kategori</th>
+                            <th>Nama Kategori</th>
                             <td>
-                                <input type="text" class="form-control @error('nama_kategori') is-invalid @enderror" name="nama_kategori" value="{{ old('nama_kategori') }}">
+                                <input type="text" class="form-control @error('nama_kategori') is-invalid @enderror" name="nama_kategori" 
+                                    value="{{ old('nama_kategori', $kategori->nama_kategori) }}">
                                 @error('nama_kategori')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </td>
                         </tr>
                         <tr>
-                            <th>deskripsi</th>
+                            <th>Deskripsi</th>
                             <td>
-                                <input type="text" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" value="{{ old('deskripsi') }}">
+                                <input type="text" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" 
+                                    value="{{ old('deskripsi', $kategori->deskripsi) }}">
                                 @error('deskripsi')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -31,8 +33,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-primary mt-3">Simpan</button>
-                <a href="{{ url('admin/kategori_dokumen') }}" class="btn btn-secondary mt-3">Batal</a>
+                <button type="submit" class="btn btn-primary mt-3">Update</button>
+                <a href="{{ url('admin/kategori_dokumen') }}" class="btn btn-secondary mt-3">Kembali</a>
             </form>
         </div>
     </div>

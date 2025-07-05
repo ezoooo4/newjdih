@@ -48,7 +48,7 @@
                                 @enderror
                                 @if($berita->foto_berita)
                                     <div class="mt-2">
-                                        <img src="{{ asset('storage/' . $berita->foto_berita) }}" width="150">
+                                        <img src="{{ asset('system/storage/app/public/' . $berita->foto_berita) }}" width="150">
                                     </div>
                                 @endif
                             </td>
@@ -65,7 +65,7 @@
                     </tbody>
                 </table>
                 <button type="submit" class="btn btn-primary mt-3">Update</button>
-                <a href="{{ url('admin/berita') }}" class="btn btn-secondary mt-3">Batal</a>
+                <a href="{{ url('admin/berita') }}" class="btn btn-secondary mt-3">Kembali</a>
             </form>
         </div>
     </div>

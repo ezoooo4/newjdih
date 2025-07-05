@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('dokumen', function (Blueprint $table) {
-            $table->string('file_dokumen')->nullable();
+            
             $table->string('link_dokumen')->nullable();
         });
     }
@@ -23,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('dokumen', function (Blueprint $table) {
-            $table->dropColumn('file_dokumen');
+            
             $table->dropColumn('link_dokumen');
         });
     }

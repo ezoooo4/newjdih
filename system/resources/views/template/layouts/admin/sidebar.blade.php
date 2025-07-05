@@ -1,9 +1,9 @@
 <aside class="sidebar">
     <ul class="menu">
-        <li class="{{ request()->is('admin/dasboard') ? 'active' : '' }}">
-            <a href="{{ url('admin/dasboard') }}">
+        <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
+            <a href="{{ url('admin/dashboard') }}">
                 <i class="bi bi-house"></i>
-                <span>Dasboard</span>
+                <span>Dashboard</span>
             </a>
         </li>
         <li class="{{ request()->is('admin/agenda') ? 'active' : '' }}">
@@ -33,7 +33,7 @@
         <li class="{{ request()->is('admin/Kategori_dokumen') ? 'active' : '' }}">
             <a href="{{ url('admin/kategori_dokumen') }}">
                 <i class="bi bi-bookmark-plus-fill"></i>
-                <span>Kategori_dokumen</span>
+                <span>Kategori Dokumen</span>
             </a>
         </li>
     </ul>
