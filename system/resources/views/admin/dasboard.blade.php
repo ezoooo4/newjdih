@@ -118,6 +118,7 @@
     }
 
     .card-info p {
+        
         margin: 0;
         font-size: 28px;
         font-weight: bold;
@@ -128,6 +129,7 @@
 <div class="dashboard-container">
     <div class="dashboard-header">
         Selamat Datang di Dashboard Admin
+
 
         <!-- Tombol Profil Admin -->
         <div class="profil-button">

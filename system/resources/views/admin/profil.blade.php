@@ -29,6 +29,7 @@
             <label for="name" class="form-label">Nama</label>
             <input type="text" id="name" name="name" value="{{ old('name', $admin->name ?? '') }}" class="form-control" required>
         </div>
+        
 
         <!-- Email -->
         <div class="mb-3">
